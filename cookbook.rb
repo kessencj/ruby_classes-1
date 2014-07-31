@@ -1,53 +1,37 @@
 class Cookbook
-
+	attr_accessor :title
+	attr_accessor :recipes
 	def initialize (title)
 		@title = title
+		@recipes = []
 	end
 
-	def title=(new_title)
-		@title = new_title
+	def add_recipe(recipe)
+		@recipes<<(recipe)
+		puts "Added a recipe to the collection: #{recipe.title}."
+	end
+
+	def recipes
+		puts @recipes = []
+	end
+	
+	def recipe_titles
+		puts @recipes
+	end
+
+	def recipe_ingredients
+		puts "These are the ingredients for #{@recipes}: #{@recipes}"
 	end
 end
 
 class Recipe
+	attr_accessor :title
+	attr_accessor :steps
+	attr_accessor :ingredients
 
 	def initialize (title, ingredients, steps)
 		@title = title
 		@ingredients = ingredients
 		@steps = steps
 	end
-
-	def title(new_title)
-		@title = new_title
-	end
-
-	def ingredients(*new_ingredients)
-		@ingredients = new_ingredients
-	end
-
-	def steps(*new_steps)
-		@steps = new_steps
 end
-
-end
-
-
-mex_cuisine = Cookbook.new("Mexican Cooking")
-
-burrito = Recipe.new("Bean Burrito", ["tortilla", "bean"], ["heat beans", "place beans in tortilla", "roll up"])
-
-puts mex_cuisine.title
-puts burrito.title
-p burrito.ingredients
-p burrito.steps
-
-mex_cuisine.title = "Mexican Recipes"
-puts mex_cuisine.title
-
-burrito.title = "Veggie Burrito"
-burrito.ingredients = ["tortilla", "tomatoes"]
-burrito.steps = ["heat tomatoes", "place tomatoes in tortilla", "roll up"]
-
-p burrito.title # "Veggie Burrito"
-p burrito.ingredients # ["tortilla", "tomatoes"]
-p burrito.steps
